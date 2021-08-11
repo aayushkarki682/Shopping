@@ -20,7 +20,11 @@ public class Products {
     private int id;
 
     @Column
-    private String pathToImage;
+    private String name;
+    
+    @Column
+    @Lob
+    private Byte[] image;
 
     @Column
     private String description;

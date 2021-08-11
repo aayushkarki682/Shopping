@@ -22,20 +22,20 @@ public class BootStrap implements CommandLineRunner {
     @Transactional
     @Override
     public void run(String... args) throws Exception {
-        Products product1 = Products.builder().description("laptop").pathToImage("path/to/image").price(12.2).build();
+//        Products product1 = Products.builder().description("laptop").pathToImage("path/to/image").price(12.2).build();
+//
+//        Products product2 = Products.builder().description("football").pathToImage("path/to/image").price(12.2).build();
+//        Products product3 = Products.builder().description("pen").pathToImage("path/to/image").price(12.2).build();
+//        Products product4 = Products.builder().description("jpt").pathToImage("path/to/image").price(12.2).build();
+//        productService.save(product1);
+//        productService.save(product2);
+//        productService.save(product3);
+//        productService.save(product4);
 
-        Products product2 = Products.builder().description("football").pathToImage("path/to/image").price(12.2).build();
-        Products product3 = Products.builder().description("pen").pathToImage("path/to/image").price(12.2).build();
-        Products product4 = Products.builder().description("jpt").pathToImage("path/to/image").price(12.2).build();
-        productService.save(product1);
-        productService.save(product2);
-        productService.save(product3);
-        productService.save(product4);
-
-        Cart cart1 = Cart.builder().productId(product1.getId()).quantity(2).build();
-        Cart cart2 = Cart.builder().productId(product2.getId()).quantity(3).build();
-        cartService.save(cart1);
-        cartService.save(cart2);
-        System.out.println("Database initialized with mock datas");
+//        Cart cart1 = Cart.builder().productId(product1.getId()).quantity(2).build();
+//        Cart cart2 = Cart.builder().productId(product2.getId()).quantity(3).build();
+//        cartService.save(cart1);
+//        cartService.save(cart2);
+//        System.out.println("Database initialized with mock datas");
     }
 }
