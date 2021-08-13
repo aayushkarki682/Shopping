@@ -31,14 +31,17 @@ public class ProductRestController {
         return products;
     }
 
-    @PostMapping(value="/uploadProducts", produces = {MediaType.IMAGE_JPEG_VALUE, "application/json"})
-    public ResponseEntity<?> saveProductInfo(@RequestParam("name") String name, @RequestParam("imageFile")MultipartFile file,
-                                          @RequestParam("description") String description, @RequestParam("price") double price){
+    @PostMapping(value="/uploadProducts", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
+    public ResponseEntity<?> saveProductInfo( @RequestParam("name") String name, @RequestParam("imageFile")MultipartFile file,
+                                              @RequestParam("description") String description, @RequestParam("price") double price){
+
         Products products = productService.save(name, file, description, price);
         if(products == null){
             return new ResponseEntity<>("Unable to upload the product info", HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>(name, HttpStatus.CREATED);
+        return new ResponseEntity<>("the form data was successfully created", HttpStatus.CREATED);
 
     }
+
+
 }
