@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.ArrayList;
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/product")
 public class ProductRestController {
@@ -22,7 +23,7 @@ public class ProductRestController {
     }
 
 
-    @GetMapping("/getProducts")
+    @GetMapping(value = "/getProducts")
     public List<Products> getAllProducts(){
 
         List<Products> products = new ArrayList<>();
@@ -30,6 +31,7 @@ public class ProductRestController {
 
         return products;
     }
+
 
     @PostMapping(value="/uploadProducts", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
     public ResponseEntity<?> saveProductInfo( @RequestParam("name") String name, @RequestParam("imageFile")MultipartFile file,
@@ -39,6 +41,7 @@ public class ProductRestController {
         if(products == null){
             return new ResponseEntity<>("Unable to upload the product info", HttpStatus.BAD_REQUEST);
         }
+
         return new ResponseEntity<>("the form data was successfully created", HttpStatus.CREATED);
 
     }
