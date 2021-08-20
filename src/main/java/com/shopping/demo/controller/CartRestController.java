@@ -23,9 +23,11 @@ public class CartRestController {
         return cartService.getAll();
     }
 
-    @PostMapping(value = "/saveCart", consumes = {MediaType.MULTIPART_FORM_DATA_VALUE})
-    public Cart saveCart(@RequestParam("productId") int productId, @RequestParam("quantity") int quantity){
-        Cart cart = Cart.builder().productId(productId).quantity(quantity).build();
-        return cartService.save(cart);
+    @PostMapping("/saveCart")
+    public void saveCart(@RequestBody List<Cart> cart){
+        for(Cart c : cart){
+            cartService.save(c);
+        }
+
     }
 }
