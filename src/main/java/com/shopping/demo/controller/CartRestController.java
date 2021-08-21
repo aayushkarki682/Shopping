@@ -24,10 +24,14 @@ public class CartRestController {
     }
 
     @PostMapping("/saveCart")
-    public void saveCart(@RequestBody List<Cart> cart){
-        for(Cart c : cart){
-            cartService.save(c);
-        }
+    public Cart saveCart(@RequestBody Cart cart){
+        System.out.println(cart.getProductId());
+        return cartService.save(cart);
+    }
 
+    @PutMapping("/updateCart")
+    public void updateCart(@RequestBody Cart cart){
+        System.out.println(cart.getQuantity());
+         cartService.update(cart);
     }
 }

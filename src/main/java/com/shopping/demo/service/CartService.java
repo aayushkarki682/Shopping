@@ -8,4 +8,7 @@ public interface CartService {
 
     Cart save(Cart cart);
     List<Cart> getAll();
+
+
+    void update(Cart cart);
 }
